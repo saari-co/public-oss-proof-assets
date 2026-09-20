@@ -23,3 +23,11 @@ Writeup: `proof/openclaw-grok-20260814.md` in that repo.
 | [openclaw-03-model-picker.png](openshell-grok/2742/2026-08-14/openclaw-03-model-picker.png) | Model picker still on Nemotron |
 | [openclaw-04-after-model.png](openshell-grok/2742/2026-08-14/openclaw-04-after-model.png) | After swap attempt, still Nemotron until new session + saved Grok default |
 
+
+## openclaw/openclaw#150610 — Talk gateway-relay duplicate user transcripts
+
+Lane: [openclaw/openclaw#153739](https://github.com/openclaw/openclaw/pull/153739)
+
+| File | What it shows |
+| --- | --- |
+| [pixel-talk-one-user-row-20260920.png](openclaw-talk-relay/150610/2026-09-20/pixel-talk-one-user-row-20260920.png) | Pixel 10 Pro Fold on a branch-built Gateway: one spoken sentence renders as a single user bubble with the complete text, where six `talkFinal` transcripts reached the relay |
