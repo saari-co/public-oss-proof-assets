@@ -31,3 +31,16 @@ Lane: [openclaw/openclaw#153739](https://github.com/openclaw/openclaw/pull/15373
 | File | What it shows |
 | --- | --- |
 | [pixel-talk-one-user-row-20260920.png](openclaw-talk-relay/150610/2026-09-20/pixel-talk-one-user-row-20260920.png) | Pixel 10 Pro Fold on a branch-built Gateway: one spoken sentence renders as a single user bubble with the complete text, where six `talkFinal` transcripts reached the relay |
+
+## openclaw/openclaw#157331 — Gemini 3.8 TTS over the Interactions API
+
+Lane: [openclaw/openclaw#157331](https://github.com/openclaw/openclaw/pull/157331)
+
+One live synthesis through the branch's Google speech provider on 2026-09-24
+(`gemini-3.8-flash-lite-tts`, voice `Kore`, `store: false`, `audio/l16` at 24 kHz).
+The API key is not in the trace; the audio base64 is elided.
+
+| File | What it shows |
+| --- | --- |
+| [gemini-3.8-flash-lite-tts-20260924.wav](openclaw-gemini-tts/157331/2026-09-24/gemini-3.8-flash-lite-tts-20260924.wav) | 6.72 s WAV the provider wrote from Google's L16 response. Transcript spoken verbatim, including the `<short pause>` tag; the `speech_metadata.style` note ("warm, calm, unhurried", "Speaker name: Alex") is not read aloud |
+| [trace-redacted-20260924.json](openclaw-gemini-tts/157331/2026-09-24/trace-redacted-20260924.json) | Request body sent to `POST /v1beta/interactions` and the HTTP 200 response: `steps[].content[{type:"audio", mime_type:"audio/l16; rate=24000; channels=1"}]`, 23 input / 216 output tokens |
