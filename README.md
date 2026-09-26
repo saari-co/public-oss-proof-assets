@@ -60,3 +60,13 @@ The driver side was correct in both runs. Status bar cropped; no device serial r
 | [fold-display0-after-one-back.png](cua-android/3673/2026-09-26/fold-display0-after-one-back.png) | Same screen after one BACK; demo focused, permission still not granted |
 | [fold-cua-virtual-display-fixture-count5.png](cua-android/3673/2026-09-26/fold-cua-virtual-display-fixture-count5.png) | Cua snapshot of its virtual display: fixture counter at 5 after five Cua taps |
 | [fold-baseline-summary.json](cua-android/3673/2026-09-26/fold-baseline-summary.json) | Source revision, APK/CLI digests, both smoke outcomes, failure classification, what is not proven |
+
+### PR 1 — explicit exported Activity selection
+
+`app launch --activity` on the rebased Android driver; `scripts/smoke.py --runs 2` passes on the API 37 emulator and the Fold.
+
+| File | What it shows |
+| --- | --- |
+| [pr1-fold-fixture-detail-activity-taps1.png](cua-android/3673/2026-09-26/pr1-fold-fixture-detail-activity-taps1.png) | Cua snapshot of the fixture's non-launcher `DetailActivity`, opened by explicit Activity, after one Cua tap (`Taps: 1`) and a refused conflicting selection |
+| [pr1-fold-repoglance-widget-gallery.png](cua-android/3673/2026-09-26/pr1-fold-repoglance-widget-gallery.png) | Cua snapshot of RepoGlance's debug widget gallery opened directly with `--activity`, no launcher overlay. Sample data only; the low-contrast digits are a RepoGlance theme issue |
+| [pr1-summary.json](cua-android/3673/2026-09-26/pr1-summary.json) | Candidate revision, artifact digests, local gates, both device runs, every selection call and refusal code from the Fold run |

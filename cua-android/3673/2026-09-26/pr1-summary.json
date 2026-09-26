@@ -1,0 +1,130 @@
+{
+  "schema": "cua-android-pr1-activity-selection.v1",
+  "date": "2026-09-26",
+  "upstream": {
+    "rfc": "trycua/cua#3673",
+    "base_branch": "feat/cua-driver-android-local",
+    "base_revision": "271d2e462a9875a9aedc0d73e626bcac54ee27d4",
+    "candidate_revision": "9216d6afebe58b62e47983045ba548466fba504e"
+  },
+  "artifacts_sha256": {
+    "runtime": "c609f929be949927850fd795d34d3c21ae7b5c68c6d138a3efafd3250605f5ef",
+    "demo": "7226204503cdfd7432d4d3e70dfc838a344851bfb829d4263c2f2239468bdcc2",
+    "fixture-target": "6e5b970b9f764e90d4d79364d12c0999a876a33ad0e28855a458db89b7164502",
+    "cua-driver-host-cli": "7702c2e66f85e24019fe58e7109b2e6de7d41ec3c0310d6819cf8708c695db59"
+  },
+  "local_gates": {
+    "gradle": "assemble + runtime/sdk/demo unit tests (5/11/28 pass) + lint runtime/sdk/demo/fixture-target: pass",
+    "rust": "cargo test -p cua-driver-contract (59 pass), android_bridge tests (10 pass), cargo fmt --check: pass; clippy not run locally",
+    "mutation": "deleting the launch_target_conflict refusal fails SessionTasksTest"
+  },
+  "device_runs": [
+    {
+      "target": {
+        "device_class": "emulator",
+        "api_level": 37,
+        "image": "google_apis arm64",
+        "qemu": true
+      },
+      "command": "scripts/smoke.py --runs 2",
+      "result": "pass"
+    },
+    {
+      "target": {
+        "device_class": "physical",
+        "model": "Pixel 10 Pro Fold",
+        "api_level": 37,
+        "posture": "unfolded, inner display"
+      },
+      "command": "scripts/smoke.py --runs 2",
+      "result": "pass",
+      "activity_selection_calls": [
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "reason": null,
+          "activity": "ai.cua.fixture.notes.MainActivity"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "reason": null,
+          "activity": "ai.cua.fixture.notes.MainActivity"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "reason": null,
+          "activity": "ai.cua.fixture.notes.MainActivity"
+        },
+        {
+          "status": "refused",
+          "exit_code": 3,
+          "reason": "activity_not_exported",
+          "activity": null
+        },
+        {
+          "status": "refused",
+          "exit_code": 3,
+          "reason": "activity_disabled",
+          "activity": null
+        },
+        {
+          "status": "refused",
+          "exit_code": 3,
+          "reason": "activity_not_found",
+          "activity": null
+        },
+        {
+          "status": "refused",
+          "exit_code": 3,
+          "reason": "activity_not_found",
+          "activity": null
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "reason": null,
+          "activity": "ai.cua.fixture.notes.DetailActivity"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "reason": null,
+          "activity": "ai.cua.fixture.notes.DetailActivity"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "reason": null,
+          "activity": "ai.cua.fixture.notes.DetailActivity"
+        },
+        {
+          "status": "refused",
+          "exit_code": 3,
+          "reason": "launch_target_conflict",
+          "activity": null
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "reason": null,
+          "activity": "ai.cua.fixture.notes.MainActivity"
+        }
+      ]
+    }
+  ],
+  "precondition": "Both runs pre-granted POST_NOTIFICATIONS to the synthetic demo (as lifecycle-smoke.py does); see fold-baseline-summary.json for the fresh-install failure this avoids.",
+  "downstream_evidence": {
+    "app": "RepoGlance debug build (co.saari.repoglance)",
+    "activity": "co.saari.repoglance.devpicker.WidgetVariantPickerActivity",
+    "result": "launched directly by --activity with no manifest overlay; readback activity matched; Stop removed the task",
+    "swipe": "accepted, no visible scroll: the gallery fits the 1080x1920 session display",
+    "known_app_issue": "count digits render low-contrast on the dark gallery background (RepoGlance theme, not Cua)"
+  },
+  "images_sha256": {
+    "pr1-fold-fixture-detail-activity-taps1.png": "d776c6c331de9a51b56afa6365c23a7ee1a7ea4637f08a3ffd942caef8af1d63",
+    "pr1-fold-repoglance-widget-gallery.png": "906197e07283b8dfc7781c1a6ea2334963ad729ceb39ad506801e83df75f08bc"
+  },
+  "redactions": "Cua virtual-display captures only (no status bar); no device serial recorded"
+}
