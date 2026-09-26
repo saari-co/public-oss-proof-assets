@@ -70,3 +70,12 @@ The driver side was correct in both runs. Status bar cropped; no device serial r
 | [pr1-fold-fixture-detail-activity-taps1.png](cua-android/3673/2026-09-26/pr1-fold-fixture-detail-activity-taps1.png) | Cua snapshot of the fixture's non-launcher `DetailActivity`, opened by explicit Activity, after one Cua tap (`Taps: 1`) and a refused conflicting selection |
 | [pr1-fold-repoglance-widget-gallery.png](cua-android/3673/2026-09-26/pr1-fold-repoglance-widget-gallery.png) | Cua snapshot of RepoGlance's debug widget gallery opened directly with `--activity`, no launcher overlay. Sample data only; the low-contrast digits are a RepoGlance theme issue |
 | [pr1-summary.json](cua-android/3673/2026-09-26/pr1-summary.json) | Candidate revision, artifact digests, local gates, both device runs, every selection call and refusal code from the Fold run |
+
+### PR 2 — emulator → physical Pixel qualification harness
+
+`scripts/qualify.py` receipts. Devices are named by role only; home paths are replaced with `~`.
+
+| File | What it shows |
+| --- | --- |
+| [pr2-receipt-final-cf41cfbd3.json](cua-android/3673/2026-09-26/pr2-receipt-final-cf41cfbd3.json) | Final candidate from fresh installs: emulator (deploy, smoke, lifecycle) and Fold (deploy, smoke) pass, installed bytes match, cleanup clean, not-run checks and Driver-unsupported capabilities listed |
+| [pr2-receipt-first-run.json](cua-android/3673/2026-09-26/pr2-receipt-first-run.json) | First run before the lifecycle fix: `smoke.py` passes on a fresh install, `lifecycle-smoke.py` fails on the collapsed notification, the phone phase is `blocked`, cleanup residue recorded (pre-amend local revision) |
