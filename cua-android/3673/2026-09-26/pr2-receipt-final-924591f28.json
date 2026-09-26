@@ -1,0 +1,109 @@
+{
+  "schema": "cua.android.qualification.v0",
+  "candidate": {
+    "source_revision": "924591f28b754d8482f0eae5826b4955af684887",
+    "source_dirty": false,
+    "apk_sha256": {
+      "runtime": "8d25bd5535479636c8e3954c68bbb95b39a7338f7489dfe2161ca53d020aedf2",
+      "fixture-target": "f305f0caf7f5aa4c12d2f1be3f760968dc0551d9f61cc1bffdbfe1a5d50d5864",
+      "demo": "332a340582745cc77d5e63e3f3c4a4903e046069e9bb572dcf54740b85683f2d"
+    },
+    "driver_sha256": "30a7aeecbca2418d3916f95b73815de627b52c6c1bca947c07c942654842ee65"
+  },
+  "phases": {
+    "emulator": {
+      "steps": {
+        "deploy": "pass",
+        "smoke": "pass",
+        "lifecycle": "pass"
+      },
+      "status": "pass",
+      "environment": {
+        "device_class": "emulator",
+        "model": "sdk_gphone64_arm64",
+        "android_release": "17",
+        "api_level": "37",
+        "abi": "arm64-v8a",
+        "physical_displays": 1,
+        "device_state": "DEFAULT"
+      },
+      "installed_identity": "match",
+      "driver_unsupported": [
+        "accessibility.display",
+        "human.concurrent_typing",
+        "key.background",
+        "text.raw_keys",
+        "text.semantic"
+      ],
+      "driver_unverified": [
+        "app.launch.virtual",
+        "capture.display",
+        "display.virtual",
+        "gesture.cancel",
+        "gesture.swipe",
+        "preview.read_only",
+        "touch.background"
+      ],
+      "cleanup": {
+        "cua_virtual_displays": 0,
+        "synthetic_tasks_off_display_0": [],
+        "waited_s": 0,
+        "result": "clean"
+      }
+    },
+    "physical": {
+      "steps": {
+        "deploy": "pass",
+        "smoke": "pass"
+      },
+      "status": "pass",
+      "environment": {
+        "device_class": "physical",
+        "model": "Pixel 10 Pro Fold",
+        "android_release": "17",
+        "api_level": "37",
+        "abi": "arm64-v8a",
+        "physical_displays": 2,
+        "device_state": "OPENED"
+      },
+      "installed_identity": "match",
+      "not_run": [
+        {
+          "check": "lifecycle-smoke.py",
+          "reason": "expands and reads the phone's notification shade"
+        },
+        {
+          "check": "human IME concurrency",
+          "reason": "display-0 typing is synthetic ADB text"
+        },
+        {
+          "check": "fold posture or rotation change during a session",
+          "reason": "not exercised"
+        }
+      ],
+      "driver_unsupported": [
+        "accessibility.display",
+        "human.concurrent_typing",
+        "key.background",
+        "text.raw_keys",
+        "text.semantic"
+      ],
+      "driver_unverified": [
+        "app.launch.virtual",
+        "capture.display",
+        "display.virtual",
+        "gesture.cancel",
+        "gesture.swipe",
+        "preview.read_only",
+        "touch.background"
+      ],
+      "cleanup": {
+        "cua_virtual_displays": 0,
+        "synthetic_tasks_off_display_0": [],
+        "waited_s": 0,
+        "result": "clean"
+      }
+    }
+  },
+  "qualification": "full"
+}

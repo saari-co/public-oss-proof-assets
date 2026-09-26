@@ -77,5 +77,6 @@ The driver side was correct in both runs. Status bar cropped; no device serial r
 
 | File | What it shows |
 | --- | --- |
-| [pr2-receipt-final-cf41cfbd3.json](cua-android/3673/2026-09-26/pr2-receipt-final-cf41cfbd3.json) | Final candidate from fresh installs: emulator (deploy, smoke, lifecycle) and Fold (deploy, smoke) pass, installed bytes match, cleanup clean, not-run checks and Driver-unsupported capabilities listed |
+| [pr2-receipt-final-924591f28.json](cua-android/3673/2026-09-26/pr2-receipt-final-924591f28.json) | Final head after OpenClaw review fixes, from fresh installs: `qualification: full`; emulator (deploy, smoke, lifecycle) and Fold (deploy, smoke) pass, installed bytes match, cleanup clean |
+| [pr2-receipt-final-cf41cfbd3.json](cua-android/3673/2026-09-26/pr2-receipt-final-cf41cfbd3.json) | Superseded head, before the review fixes. From fresh installs: emulator (deploy, smoke, lifecycle) and Fold (deploy, smoke) pass, installed bytes match, cleanup clean, not-run checks and Driver-unsupported capabilities listed |
 | [pr2-receipt-first-run.json](cua-android/3673/2026-09-26/pr2-receipt-first-run.json) | First run before the lifecycle fix: `smoke.py` passes on a fresh install, `lifecycle-smoke.py` fails on the collapsed notification, the phone phase is `blocked`, cleanup residue recorded (pre-amend local revision) |
