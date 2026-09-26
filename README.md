@@ -44,3 +44,19 @@ The API key is not in the trace; the audio base64 is elided.
 | --- | --- |
 | [gemini-3.8-flash-lite-tts-20260924.wav](openclaw-gemini-tts/157331/2026-09-24/gemini-3.8-flash-lite-tts-20260924.wav) | 6.72 s WAV the provider wrote from Google's L16 response. Transcript spoken verbatim, including the `<short pause>` tag; the `speech_metadata.style` note ("warm, calm, unhurried", "Speaker name: Alex") is not read aloud |
 | [trace-redacted-20260924.json](openclaw-gemini-tts/157331/2026-09-24/trace-redacted-20260924.json) | Request body sent to `POST /v1beta/interactions` and the HTTP 200 response: `steps[].content[{type:"audio", mime_type:"audio/l16; rate=24000; channels=1"}]`, 23 input / 216 output tokens |
+
+## trycua/cua#3673 — Android driver baseline on Pixel 10 Pro Fold
+
+Lane: [trycua/cua#3673](https://github.com/trycua/cua/issues/3673) (draft [trycua/cua#3674](https://github.com/trycua/cua/pull/3674) at `271d2e46`)
+
+Upstream `scripts/smoke.py` on a physical Pixel 10 Pro Fold (Android 17 / API 37, unfolded, inner display).
+It fails on a fresh install because the demo's first-launch notification-permission dialog takes display-0
+focus (`lifecycle-smoke.py` pre-grants the permission; `smoke.py` does not). It passes with the same pre-grant.
+The driver side was correct in both runs. Status bar cropped; no device serial recorded.
+
+| File | What it shows |
+| --- | --- |
+| [fold-display0-fresh-install-permission-dialog.png](cua-android/3673/2026-09-26/fold-display0-fresh-install-permission-dialog.png) | Display 0 after a fresh demo install: the permission dialog covers the synthetic "Human input" field that `smoke.py` types into |
+| [fold-display0-after-one-back.png](cua-android/3673/2026-09-26/fold-display0-after-one-back.png) | Same screen after one BACK; demo focused, permission still not granted |
+| [fold-cua-virtual-display-fixture-count5.png](cua-android/3673/2026-09-26/fold-cua-virtual-display-fixture-count5.png) | Cua snapshot of its virtual display: fixture counter at 5 after five Cua taps |
+| [fold-baseline-summary.json](cua-android/3673/2026-09-26/fold-baseline-summary.json) | Source revision, APK/CLI digests, both smoke outcomes, failure classification, what is not proven |

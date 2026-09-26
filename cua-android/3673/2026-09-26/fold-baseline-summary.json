@@ -1,0 +1,78 @@
+{
+  "schema": "cua-android-fold-baseline.v1",
+  "date": "2026-09-26",
+  "upstream": {
+    "rfc": "trycua/cua#3673",
+    "pr": "trycua/cua#3674",
+    "branch": "feat/cua-driver-android-local",
+    "source_revision": "271d2e462a9875a9aedc0d73e626bcac54ee27d4"
+  },
+  "artifacts_sha256": {
+    "runtime": "8d25bd5535479636c8e3954c68bbb95b39a7338f7489dfe2161ca53d020aedf2",
+    "demo": "332a340582745cc77d5e63e3f3c4a4903e046069e9bb572dcf54740b85683f2d",
+    "fixture-target": "f305f0caf7f5aa4c12d2f1be3f760968dc0551d9f61cc1bffdbfe1a5d50d5864",
+    "cua-driver-host-cli": "530461407e516706495f7e5001febd49c2551ae5a6aed6c05ce740b5250efae0"
+  },
+  "note_artifacts": "Android APK digests are byte-identical to the 2026-09-18 build of 0d8de736 (Android subtree unchanged by the rebase).",
+  "target": {
+    "kind": "registered_test_device",
+    "device_class": "physical",
+    "model": "Pixel 10 Pro Fold",
+    "android_release": "17",
+    "api_level": 37,
+    "posture": "unfolded (device_state OPENED)",
+    "active_physical_display": "inner, logical display 0, 2076x2152; cover panel inactive"
+  },
+  "runs": [
+    {
+      "command": "scripts/smoke.py --runs 2 (fresh install via scripts/deploy.py)",
+      "result": "fail",
+      "failed_clause": "verify_concurrency: display-0 synthetic text not received",
+      "driver_side": {
+        "virtual_display_id": 12,
+        "fixture_counter": 5,
+        "touch_events_on_virtual_display": 10,
+        "authorization_probe": "denied"
+      },
+      "display0_side": {
+        "demo_text": "",
+        "demo_window_focus": false
+      },
+      "cause": "ai.cua.android.demo requests POST_NOTIFICATIONS on first launch; the permission dialog takes display-0 window focus. lifecycle-smoke.py pre-grants this permission; smoke.py does not.",
+      "classification": "harness precondition on a fresh physical install, not a driver defect"
+    },
+    {
+      "command": "same, after `pm grant ai.cua.android.demo android.permission.POST_NOTIFICATIONS` (the step lifecycle-smoke.py uses)",
+      "result": "pass",
+      "passed": [
+        "2x concurrent synthetic display-0 typing + 5 Cua virtual-display taps (counter 5, touches on virtual display only)",
+        "stale snapshot refusal",
+        "Stop destroys owned task",
+        "phone-local CLI geometry, stationary swipe, PNG export, duplicate request dedup",
+        "SDK-owned preview interval with no host requests",
+        "unrenewed 60 s lease destroys the task"
+      ]
+    },
+    {
+      "command": "visual reproduction: reinstall synthetic demo APK only, start on display 0, capture, one BACK, capture",
+      "result": "reproduced",
+      "images": [
+        "fold-display0-fresh-install-permission-dialog.png",
+        "fold-display0-after-one-back.png"
+      ],
+      "restore": "BACK dismissed the dialog without granting; POST_NOTIFICATIONS left granted=false"
+    }
+  ],
+  "not_proven": [
+    "human IME isolation (ADB text is synthetic)",
+    "fold/unfold posture changes during a session",
+    "cover display",
+    "Activity selection (PR 1 not implemented yet)"
+  ],
+  "images_sha256": {
+    "fold-cua-virtual-display-fixture-count5.png": "fb247f6798f7e36de72847472dcb2f3aa3ade9891d9b59603efb5872f965b43c",
+    "fold-display0-after-one-back.png": "245e48ebc8d5bec107ebe081376d80e344f658146976d47e4078b55efba49bae",
+    "fold-display0-fresh-install-permission-dialog.png": "0698ae608ceccf737378d11926b4bc2d79621f9985cc734039d97f05791ec3b6"
+  },
+  "redactions": "status bar cropped from display-0 captures; no device serial or account data recorded"
+}
