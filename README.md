@@ -93,3 +93,15 @@ A local build of `271d2e46` + #4247 + #4249 on a Pixel 10 Pro Fold (Android 17).
 | [evidence-real-human-typing-dual.png](cua-android/3673/2026-09-26/evidence-real-human-typing-dual.png) | A real human typing with Gboard on display 0 while the agent set `AgentText04` and tapped (count 4) on Cua's display. Agent: 7/7 set-text and 7/7 taps; the human's 216 characters arrived intact; the keyboard stayed on display 0 |
 | [evidence-termux-refused.png](cua-android/3673/2026-09-26/evidence-termux-refused.png) | Real Termux (`untrusted_app_27`) running Cua's phone CLI from its own session. It can list Cua's folder. `doctor` and `session create` are refused but reported as `uncertain` (exit 4), and writing into Cua's folder is denied |
 | [evidence-summary.json](cua-android/3673/2026-09-26/evidence-summary.json) | Latency, snapshot frame age against idle time, IME focus isolation, accessibility visibility, the UiAutomation spike, rotation, 3-minute soak, fold (simulated, tabletop, physical) and power-button lock results, real human typing, ordinary-app refusal |
+
+## saariuslystoned/phone-lab#3 — Slice 2, cross-display element refs
+
+Lane: [saariuslystoned/phone-lab#3](https://github.com/saariuslystoned/phone-lab/pull/3)
+Writeup: `proof/slice-2-element-refs/PROOF.md` in that repo. Both images are
+`screencap -d` of Cua's virtual display on the Pixel 10 Pro Fold (the
+synthetic fixture only; no status bar, no personal content).
+
+| File | What it shows |
+| --- | --- |
+| [slice2-toast-on-cua-display.png](phone-lab/3/2026-09-27/slice2-toast-on-cua-display.png) | Toast raised by phone-lab's treedump lands on the Cua display (Count: 2) |
+| [slice2-toast-during-api-capture.png](phone-lab/3/2026-09-27/slice2-toast-during-api-capture.png) | Toast during the ten `GET /api/tree` captures (Count: 22); the increment ref stayed `e7f67h` |
