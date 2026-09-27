@@ -488,13 +488,23 @@
     "ordinary_app_uid": {
       "method": "run-as a debuggable synthetic app (Termux-equivalent ordinary app UID); Termux itself was blocked by Play Protect verification",
       "phone_cli_doctor": "refused before reaching the runtime, but reported as status=uncertain exit 4 ('Permission denied; do not blindly retry input') rather than a definite refusal"
+    },
+    "termux_real": {
+      "app": "Termux v0.118.3 (official GitHub build, sha256 72fdb596\u2026, installed after the human chose 'Install anyway' on Play Protect)",
+      "identity": "u0_a383, SELinux untrusted_app_27 (targetSdk 28)",
+      "list_cua_folder": "allowed",
+      "cua_doctor": "refused before reaching runtime; reported status=uncertain exit 4",
+      "cua_session_create": "refused; reported status=uncertain exit 4",
+      "write_into_cua_folder": "denied",
+      "android17_notice": "Android App Compatibility dialog: debuggable app, native libs not 16 KB page aligned"
     }
   },
   "images": {
     "evidence-dual-after-set-text.png": "de266a492933b6abb47dbc7333409786d184a993cd25999c42ffe32d97801d09",
     "evidence-dual-before-set-text.png": "c607a04057af3d519f24c280a831d461c494d17b686720cd859351e05e81828b",
     "evidence-fold-lock-cua-display.png": "92e500a140c75e588b6a0eb9a0daf5c52f8d68bcedafb9f81754b392cb9206ac",
-    "evidence-real-human-typing-dual.png": "4adfad3abf364dca950d2d5861ac8ebee9258600757e0f8d4ac258bd146a6417"
+    "evidence-real-human-typing-dual.png": "4adfad3abf364dca950d2d5861ac8ebee9258600757e0f8d4ac258bd146a6417",
+    "evidence-termux-refused.png": "09b79e16269eaae41d18b6797f509feffdf60e3cb5b8a65bede85b0ba0248952"
   },
   "redactions": "status bar cropped from display-0 panels; only synthetic apps shown; no serial or account data"
 }
