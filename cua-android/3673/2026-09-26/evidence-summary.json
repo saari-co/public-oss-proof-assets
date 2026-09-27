@@ -1,0 +1,416 @@
+{
+  "schema": "cua-android-physical-evidence.v1",
+  "date": "2026-09-26",
+  "device": {
+    "model": "Pixel 10 Pro Fold",
+    "android": "17",
+    "api": 37,
+    "posture": "OPENED unless stated",
+    "serial": "not recorded"
+  },
+  "build": {
+    "integration": "271d2e46 (feat/cua-driver-android-local) + trycua/cua#4247@9216d6afe + trycua/cua#4249@924591f28, merged locally",
+    "artifact_sha256": {
+      "runtime": "9230eb57c8f6eb0f40169f24c27f181991da9f10f91c2154891103d0a95af533",
+      "demo": "99305af4813f87b86bbe76ad4c17d2f5110d447bcc031431e74df254af15c441",
+      "fixture-target": "9404283d9f24d022d3791c1a1088dcb6db76ea79789c94e338e0108af18cf20b",
+      "cua-driver-host-cli": "55f0c930dcf9e1c8db5b350a9436572c2131bb46aa5c16429e438a75fafc4fdd"
+    }
+  },
+  "method": "Host CLI over USB ADB. Effects checked through the synthetic fixture's own state provider, never through Cua's acknowledgement. Only Cua's synthetic fixture and demo apps were driven.",
+  "findings": {
+    "latency": {
+      "session_create_ms": 429,
+      "app_launch_ms": 2951,
+      "session_stop_ms": 564,
+      "snapshot_plus_tap_ack_ms": {
+        "median": 1279,
+        "p90": 1381,
+        "max": 1445
+      },
+      "tap_to_fixture_effect_ms_upper_bound": {
+        "median": 2568,
+        "p90": 2677,
+        "max": 2708
+      },
+      "snapshot_frame_age_ms": {
+        "median": 2811,
+        "p90": 2947,
+        "max": 4122
+      },
+      "frame_stale": {
+        "frame_stale_retries": 0,
+        "taps": 20
+      }
+    },
+    "snapshot_frame_age_vs_idle": [
+      {
+        "idle_s": 0,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 2846,
+        "snapshot_call_ms": 695,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 0,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 3911,
+        "snapshot_call_ms": 686,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 0,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 48,
+        "snapshot_call_ms": 673,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 1,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 2130,
+        "snapshot_call_ms": 644,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 1,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 4227,
+        "snapshot_call_ms": 605,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 1,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 137,
+        "snapshot_call_ms": 846,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 2,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 3198,
+        "snapshot_call_ms": 733,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 2,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 143,
+        "snapshot_call_ms": 735,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 2,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 3266,
+        "snapshot_call_ms": 711,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 3,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 148,
+        "snapshot_call_ms": 820,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 3,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 4147,
+        "snapshot_call_ms": 593,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 3,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 152,
+        "snapshot_call_ms": 843,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 4,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 117,
+        "snapshot_call_ms": 772,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 4,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 152,
+        "snapshot_call_ms": 766,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 4,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 122,
+        "snapshot_call_ms": 784,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 6,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 128,
+        "snapshot_call_ms": 723,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 6,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 135,
+        "snapshot_call_ms": 898,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 6,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 43,
+        "snapshot_call_ms": 713,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 8,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 132,
+        "snapshot_call_ms": 891,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 8,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 126,
+        "snapshot_call_ms": 779,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 8,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 131,
+        "snapshot_call_ms": 843,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 10,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 143,
+        "snapshot_call_ms": 910,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 10,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 57,
+        "snapshot_call_ms": 703,
+        "capture_method": "surface_replacement"
+      },
+      {
+        "idle_s": 10,
+        "status": "ok",
+        "reason": null,
+        "frame_age_ms": 151,
+        "snapshot_call_ms": 876,
+        "capture_method": "surface_replacement"
+      }
+    ],
+    "frame_age_explanation": "snapshot reuses a cached frame while it is <=5000 ms old (RuntimeMain.snapshot); tap requires the same frame <=5000 ms old (RuntimeMain.gesture). After a short idle the returned frame can already be ~4.2 s old, leaving <1 s to act; after >=4 s idle a fresh frame (~130 ms) is forced.",
+    "ime_focus_isolation": {
+      "agent_tapped_text_field_on_its_display": true,
+      "human_display0_focus_kept": {
+        "window_focus": true,
+        "editor_focus": true
+      },
+      "agent_field_focus": {
+        "window_focus": true,
+        "editor_focus": true
+      },
+      "human_typing_landed_in": "display0_demo",
+      "note": "display-0 typing is synthetic ADB text"
+    },
+    "accessibility_visibility": {
+      "uiautomator_dump_nodes_on_cua_display": 0,
+      "dumpsys_activity_top_fixture_view_ids": [
+        "counter",
+        "editor",
+        "increment"
+      ]
+    },
+    "shell_uiautomation_spike": {
+      "method": "never-installed shell-UID UiAutomator jar; UiAutomation.getWindowsOnAllDisplays() filtered to Cua's display; ACTION_SET_TEXT on the fixture editor",
+      "displays_with_windows": [
+        0,
+        87
+      ],
+      "cua_display_windows": [
+        {
+          "type": 1,
+          "title": "Cua Synthetic Notes",
+          "root_package": "ai.cua.fixture.notes"
+        }
+      ],
+      "fixture_nodes": [
+        {
+          "class": "android.widget.FrameLayout",
+          "package": "ai.cua.fixture.notes",
+          "id": "android:id/content",
+          "bounds": "0 0 1080 1920",
+          "editable": false,
+          "clickable": false,
+          "depth": 2,
+          "text": null
+        },
+        {
+          "class": "android.widget.TextView",
+          "package": "ai.cua.fixture.notes",
+          "id": null,
+          "bounds": "24 48 1056 117",
+          "editable": false,
+          "clickable": false,
+          "depth": 4,
+          "text": "Synthetic Notes Fixture"
+        },
+        {
+          "class": "android.widget.EditText",
+          "package": "ai.cua.fixture.notes",
+          "id": "ai.cua.fixture.notes:id/editor",
+          "bounds": "24 117 1056 215",
+          "editable": true,
+          "clickable": true,
+          "depth": 4,
+          "text": "Synthetic notes only"
+        },
+        {
+          "class": "android.widget.Button",
+          "package": "ai.cua.fixture.notes",
+          "id": "ai.cua.fixture.notes:id/increment",
+          "bounds": "24 215 1056 311",
+          "editable": false,
+          "clickable": true,
+          "depth": 4,
+          "text": "INCREMENT"
+        },
+        {
+          "class": "android.widget.TextView",
+          "package": "ai.cua.fixture.notes",
+          "id": "ai.cua.fixture.notes:id/counter",
+          "bounds": "24 311 1056 380",
+          "editable": false,
+          "clickable": false,
+          "depth": 4,
+          "text": "Count: 0"
+        }
+      ],
+      "set_text": {
+        "editor_found": true,
+        "performed": true,
+        "text_after": "TypedByCuaWithoutKeyboard"
+      },
+      "independent_oracle": {
+        "fixture_text": "TypedByCuaWithoutKeyboard",
+        "fixture_display": 87,
+        "demo_text": "",
+        "demo_window_focus": true,
+        "demo_editor_focus": true
+      },
+      "ime_windows": [
+        {
+          "display_id": 0,
+          "bounds": "0 1352 2076 2152"
+        }
+      ]
+    },
+    "display0_rotation": {
+      "result": "pass",
+      "virtual_display_after": {
+        "rotation": 0,
+        "width": 1080,
+        "height": 1920
+      },
+      "fixture_counter": 2,
+      "restored_user_rotation": "free"
+    },
+    "soak_3min": {
+      "result": "pass",
+      "renewals": 10,
+      "taps_landed": 10,
+      "max_frame_age_ms": 4072
+    },
+    "fold_posture_lock": {
+      "virtual_display_kept": true,
+      "steps": [
+        {
+          "requested": "start",
+          "posture": "OPENED",
+          "keyguard_showing": false,
+          "tap_delivered": true,
+          "fixture_counter": 1,
+          "fixture_window_focus": true
+        },
+        {
+          "requested": "CLOSED",
+          "posture": "CLOSED",
+          "keyguard_showing": true,
+          "tap_delivered": false,
+          "fixture_counter": 1,
+          "fixture_window_focus": false
+        },
+        {
+          "requested": "HALF_OPENED",
+          "posture": "HALF_OPENED",
+          "keyguard_showing": true,
+          "tap_delivered": false,
+          "fixture_counter": 1,
+          "fixture_window_focus": false
+        },
+        {
+          "requested": "reset",
+          "posture": "OPENED",
+          "keyguard_showing": true,
+          "tap_delivered": false,
+          "fixture_counter": 1,
+          "fixture_window_focus": false
+        }
+      ],
+      "note": "the simulated fold raises Pixel's swipe-to-continue lock screen; Android draws it on Cua's display too; taps are accepted by the runtime but never reach the app"
+    },
+    "power_button_lock": {
+      "state": {
+        "keyguard_showing": true,
+        "wakefulness": "Dreaming"
+      },
+      "existing_session": "snapshot refused capture_not_ready (no frames while the screen is off)",
+      "fresh_session": "create + launch succeeded; snapshot refused capture_not_ready",
+      "cleanup": "no Cua display or fixture task left"
+    }
+  },
+  "images": {
+    "evidence-dual-after-set-text.png": "de266a492933b6abb47dbc7333409786d184a993cd25999c42ffe32d97801d09",
+    "evidence-dual-before-set-text.png": "c607a04057af3d519f24c280a831d461c494d17b686720cd859351e05e81828b",
+    "evidence-fold-lock-cua-display.png": "92e500a140c75e588b6a0eb9a0daf5c52f8d68bcedafb9f81754b392cb9206ac"
+  },
+  "redactions": "status bar cropped from display-0 panels; only synthetic apps shown; no serial or account data"
+}

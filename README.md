@@ -80,3 +80,14 @@ The driver side was correct in both runs. Status bar cropped; no device serial r
 | [pr2-receipt-final-924591f28.json](cua-android/3673/2026-09-26/pr2-receipt-final-924591f28.json) | Final head after OpenClaw review fixes, from fresh installs: `qualification: full`; emulator (deploy, smoke, lifecycle) and Fold (deploy, smoke) pass, installed bytes match, cleanup clean |
 | [pr2-receipt-final-cf41cfbd3.json](cua-android/3673/2026-09-26/pr2-receipt-final-cf41cfbd3.json) | Superseded head, before the review fixes. From fresh installs: emulator (deploy, smoke, lifecycle) and Fold (deploy, smoke) pass, installed bytes match, cleanup clean, not-run checks and Driver-unsupported capabilities listed |
 | [pr2-receipt-first-run.json](cua-android/3673/2026-09-26/pr2-receipt-first-run.json) | First run before the lifecycle fix: `smoke.py` passes on a fresh install, `lifecycle-smoke.py` fails on the collapsed notification, the phone phase is `blocked`, cleanup residue recorded (pre-amend local revision) |
+
+### Physical-device evidence: background use on the Fold
+
+A local build of `271d2e46` + #4247 + #4249 on a Pixel 10 Pro Fold (Android 17). Only Cua's synthetic apps are driven. Effects are checked through the fixture's own state, not through Cua's acknowledgement.
+
+| File | What it shows |
+| --- | --- |
+| [evidence-dual-before-set-text.png](cua-android/3673/2026-09-26/evidence-dual-before-set-text.png) | Both displays at once: the human's editor and keyboard on display 0, and Cua's display captured independently with `screencap` |
+| [evidence-dual-after-set-text.png](cua-android/3673/2026-09-26/evidence-dual-after-set-text.png) | After shell-UID UiAutomation read Cua's display tree and ran `ACTION_SET_TEXT`: the text appears on Cua's display, and the human's focus and keyboard are untouched |
+| [evidence-fold-lock-cua-display.png](cua-android/3673/2026-09-26/evidence-fold-lock-cua-display.png) | A simulated fold raises the lock screen on Cua's display too. The session survives, but taps are accepted and never reach the app |
+| [evidence-summary.json](cua-android/3673/2026-09-26/evidence-summary.json) | Latency, snapshot frame age against idle time, IME focus isolation, accessibility visibility, the UiAutomation spike, rotation, 3-minute soak, fold and power-button lock results |
