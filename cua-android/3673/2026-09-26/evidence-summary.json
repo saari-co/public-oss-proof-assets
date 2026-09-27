@@ -405,12 +405,96 @@
       "existing_session": "snapshot refused capture_not_ready (no frames while the screen is off)",
       "fresh_session": "create + launch succeeded; snapshot refused capture_not_ready",
       "cleanup": "no Cua display or fixture task left"
+    },
+    "real_human_typing": {
+      "setup": "the human typed a phrase with Gboard into the demo on display 0 while the agent ran ACTION_SET_TEXT and taps on Cua's display",
+      "agent_rounds": 7,
+      "agent_set_text_ok": 7,
+      "agent_taps_ok": 7,
+      "human_text_length": 216,
+      "agent_text_leaked_into_human_field": false,
+      "human_editor_focus_kept_every_round": true,
+      "ime_window_displays_each_round": [
+        0
+      ],
+      "fixture_final": {
+        "text": "AgentText07",
+        "counter": 7
+      }
+    },
+    "fold_tabletop_without_lock": {
+      "steps": [
+        {
+          "step": "open",
+          "posture": "OPENED",
+          "keyguard": false,
+          "tap_delivered": true,
+          "counter": 1
+        },
+        {
+          "step": "tabletop",
+          "posture": "HALF_OPENED",
+          "keyguard": false,
+          "tap_delivered": true,
+          "counter": 2
+        },
+        {
+          "step": "reset",
+          "posture": "OPENED",
+          "keyguard": false,
+          "tap_delivered": true,
+          "counter": 3
+        }
+      ],
+      "virtual_display_kept": true
+    },
+    "fold_physical": {
+      "transitions": [
+        {
+          "posture": "CLOSED",
+          "keyguard": true
+        },
+        {
+          "posture": "OPENED",
+          "keyguard": false
+        }
+      ],
+      "steps": [
+        {
+          "step": "open",
+          "posture": "OPENED",
+          "keyguard": false,
+          "tap_delivered": true,
+          "counter": 1
+        },
+        {
+          "step": "physically_closed",
+          "posture": "CLOSED",
+          "keyguard": true,
+          "tap_delivered": false,
+          "counter": 1
+        },
+        {
+          "step": "reopened_and_unlocked",
+          "posture": "OPENED",
+          "keyguard": false,
+          "tap_delivered": true,
+          "counter": 2
+        }
+      ],
+      "virtual_display_kept": true,
+      "note": "real fold by the human: lock screen while shut, taps accepted but not delivered; after reopen and unlock the same session resumes and taps land"
+    },
+    "ordinary_app_uid": {
+      "method": "run-as a debuggable synthetic app (Termux-equivalent ordinary app UID); Termux itself was blocked by Play Protect verification",
+      "phone_cli_doctor": "refused before reaching the runtime, but reported as status=uncertain exit 4 ('Permission denied; do not blindly retry input') rather than a definite refusal"
     }
   },
   "images": {
     "evidence-dual-after-set-text.png": "de266a492933b6abb47dbc7333409786d184a993cd25999c42ffe32d97801d09",
     "evidence-dual-before-set-text.png": "c607a04057af3d519f24c280a831d461c494d17b686720cd859351e05e81828b",
-    "evidence-fold-lock-cua-display.png": "92e500a140c75e588b6a0eb9a0daf5c52f8d68bcedafb9f81754b392cb9206ac"
+    "evidence-fold-lock-cua-display.png": "92e500a140c75e588b6a0eb9a0daf5c52f8d68bcedafb9f81754b392cb9206ac",
+    "evidence-real-human-typing-dual.png": "4adfad3abf364dca950d2d5861ac8ebee9258600757e0f8d4ac258bd146a6417"
   },
   "redactions": "status bar cropped from display-0 panels; only synthetic apps shown; no serial or account data"
 }
