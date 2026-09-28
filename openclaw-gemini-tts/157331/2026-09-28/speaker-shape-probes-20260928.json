@@ -1,0 +1,142 @@
+{
+  "date": "2026-09-28",
+  "model": "gemini-3.8-flash-lite-tts",
+  "endpoint": "POST https://generativelanguage.googleapis.com/v1beta/interactions",
+  "common": {
+    "store": false,
+    "response_format": {
+      "type": "audio",
+      "mime_type": "audio/l16",
+      "sample_rate": 24000
+    },
+    "text": "Probe one two three.",
+    "annotation": {
+      "type": "speech_metadata",
+      "speaker": "Alex",
+      "style": "warm, calm"
+    }
+  },
+  "probes": [
+    {
+      "id": "A",
+      "shape": "speech_config: [{speaker:'Alex', voice:'Kore'}] + annotation speaker",
+      "http_status": 400,
+      "response": {
+        "error": {
+          "message": "* GenerateContentRequest.generation_config.speech_config.multi_speaker_voice_config.speaker_voice_configs: the number of speaker_voice_configs must equal 2.\n",
+          "code": "invalid_request"
+        }
+      }
+    },
+    {
+      "id": "B",
+      "shape": "speech_config: [{voice:'Kore'}] + annotation speaker (adopted)",
+      "http_status": 200,
+      "response": {
+        "status": "completed",
+        "usage": {
+          "total_tokens": 101,
+          "total_input_tokens": 6,
+          "input_tokens_by_modality": [
+            {
+              "modality": "text",
+              "tokens": 6
+            }
+          ],
+          "total_cached_tokens": 0,
+          "total_output_tokens": 95,
+          "output_tokens_by_modality": [
+            {
+              "modality": "audio",
+              "tokens": 95
+            }
+          ],
+          "total_tool_use_tokens": 0,
+          "total_thought_tokens": 0,
+          "raw_prompt_token": 300,
+          "model_invocation_token_counts": [
+            {
+              "prompt_tokens_details": [
+                {
+                  "modality": "text",
+                  "tokens": 73
+                },
+                {
+                  "modality": "audio",
+                  "tokens": 201
+                }
+              ],
+              "candidates_tokens_details": [
+                {
+                  "modality": "text",
+                  "tokens": 76
+                }
+              ]
+            }
+          ],
+          "non_grounding_model_invocation_token_counts": [
+            {
+              "prompt_tokens_details": [
+                {
+                  "modality": "text",
+                  "tokens": 73
+                },
+                {
+                  "modality": "audio",
+                  "tokens": 201
+                }
+              ],
+              "candidates_tokens_details": [
+                {
+                  "modality": "text",
+                  "tokens": 76
+                }
+              ]
+            }
+          ]
+        },
+        "created": "2026-09-28T21:50:06Z",
+        "updated": "2026-09-28T21:50:06Z",
+        "service_tier": "standard",
+        "steps": [
+          {
+            "content": [
+              {
+                "data": "<base64 189440 chars>",
+                "channels": 1,
+                "sample_rate": 24000,
+                "mime_type": "audio/l16; rate=24000; channels=1",
+                "type": "audio"
+              }
+            ],
+            "type": "model_output"
+          }
+        ],
+        "object": "interaction",
+        "model": "gemini-3.8-flash-lite-tts"
+      }
+    },
+    {
+      "id": "C",
+      "shape": "speech_config: {mode:'conversational', speakers:[{speaker:'Alex', voice:'Kore'}]} + annotation speaker",
+      "http_status": 400,
+      "response": {
+        "error": {
+          "message": "Invalid input received.",
+          "code": "invalid_request"
+        }
+      }
+    },
+    {
+      "id": "D",
+      "shape": "speech_config: {speakers:[{speaker:'Alex', voice:'Kore'}]} + annotation speaker",
+      "http_status": 400,
+      "response": {
+        "error": {
+          "message": "Invalid input received.",
+          "code": "invalid_request"
+        }
+      }
+    }
+  ]
+}

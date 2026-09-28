@@ -45,6 +45,21 @@ The API key is not in the trace; the audio base64 is elided.
 | [gemini-3.8-flash-lite-tts-20260924.wav](openclaw-gemini-tts/157331/2026-09-24/gemini-3.8-flash-lite-tts-20260924.wav) | 6.72 s WAV the provider wrote from Google's L16 response. Transcript spoken verbatim, including the `<short pause>` tag; the `speech_metadata.style` note ("warm, calm, unhurried", "Speaker name: Alex") is not read aloud |
 | [trace-redacted-20260924.json](openclaw-gemini-tts/157331/2026-09-24/trace-redacted-20260924.json) | Request body sent to `POST /v1beta/interactions` and the HTTP 200 response: `steps[].content[{type:"audio", mime_type:"audio/l16; rate=24000; channels=1"}]`, 23 input / 216 output tokens |
 
+### 2026-09-28 — structured speaker label, style kept to delivery
+
+Two live syntheses through the branch's provider after the maintainer review (head `827bcda`):
+`speakerName` now rides in `speech_metadata.speaker`; `Persona:` and `Speaker name:` lines are
+gone from `style`. Four direct probes established which request shapes Google accepts for a
+single voice with a speaker label. Keys are not in any file; audio base64 is elided.
+
+| File | What it shows |
+| --- | --- |
+| [gemini-3.8-flash-lite-tts-speaker-alex-20260928.wav](openclaw-gemini-tts/157331/2026-09-28/gemini-3.8-flash-lite-tts-speaker-alex-20260928.wav) | 8.48 s WAV, `speakerName: Alex`, `audioProfile` + `personaPrompt` as `style`, persona label `Alfred` set but not sent. Transcript spoken verbatim including `<short pause>` |
+| [trace-redacted-speaker-alex-20260928.json](openclaw-gemini-tts/157331/2026-09-28/trace-redacted-speaker-alex-20260928.json) | Request with `annotations[{type:"speech_metadata", speaker:"Alex", style:"warm, calm, unhurried\n\nKeep a close-mic feel."}]` and `speech_config:[{voice:"Kore"}]`; HTTP 200 in 3.3 s, `steps[]` audio |
+| [gemini-3.8-flash-lite-tts-no-speaker-20260928.wav](openclaw-gemini-tts/157331/2026-09-28/gemini-3.8-flash-lite-tts-no-speaker-20260928.wav) | 7.0 s WAV with no speaker label and no style: no `annotations` key at all, `<laugh>` tag spoken as a vocal burst |
+| [trace-redacted-no-speaker-20260928.json](openclaw-gemini-tts/157331/2026-09-28/trace-redacted-no-speaker-20260928.json) | Plain single-voice request and HTTP 200 response in 2.9 s |
+| [speaker-shape-probes-20260928.json](openclaw-gemini-tts/157331/2026-09-28/speaker-shape-probes-20260928.json) | Direct `curl` probes: a `speaker` inside a `speech_config` array entry is mapped to `multi_speaker_voice_config` and rejected unless exactly 2 speakers; `{speakers:[one]}` with or without `mode` is HTTP 400 "Invalid input received"; single-voice array plus `speech_metadata.speaker` is HTTP 200 |
+
 ## trycua/cua#3673 — Android driver baseline on Pixel 10 Pro Fold
 
 Lane: [trycua/cua#3673](https://github.com/trycua/cua/issues/3673) (draft [trycua/cua#3674](https://github.com/trycua/cua/pull/3674) at `271d2e46`)

@@ -1,0 +1,134 @@
+{
+  "case": "speaker-alex",
+  "request": {
+    "url": "https://generativelanguage.googleapis.com/v1beta/interactions",
+    "method": "POST",
+    "body": {
+      "model": "gemini-3.8-flash-lite-tts",
+      "store": false,
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gemini three point eight speaker proof for OpenClaw. <short pause> The speaker label is structured metadata.",
+              "annotations": [
+                {
+                  "type": "speech_metadata",
+                  "speaker": "Alex",
+                  "style": "warm, calm, unhurried\n\nKeep a close-mic feel."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "response_format": {
+        "type": "audio",
+        "mime_type": "audio/l16",
+        "sample_rate": 24000
+      },
+      "generation_config": {
+        "speech_config": [
+          {
+            "voice": "Kore"
+          }
+        ]
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "elapsedMs": 3321,
+    "body": {
+      "status": "completed",
+      "usage": {
+        "total_tokens": 296,
+        "total_input_tokens": 24,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 24
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 272,
+        "output_tokens_by_modality": [
+          {
+            "modality": "audio",
+            "tokens": 272
+          }
+        ],
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 359,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 115
+              },
+              {
+                "modality": "audio",
+                "tokens": 201
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 214
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 115
+              },
+              {
+                "modality": "audio",
+                "tokens": 201
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 214
+              }
+            ]
+          }
+        ]
+      },
+      "created": "2026-09-28T21:51:15Z",
+      "updated": "2026-09-28T21:51:15Z",
+      "service_tier": "standard",
+      "steps": [
+        {
+          "content": [
+            {
+              "data": "<base64 542720 chars>",
+              "channels": 1,
+              "sample_rate": 24000,
+              "mime_type": "audio/l16; rate=24000; channels=1",
+              "type": "audio"
+            }
+          ],
+          "type": "model_output"
+        }
+      ],
+      "object": "interaction",
+      "model": "gemini-3.8-flash-lite-tts"
+    }
+  },
+  "result": {
+    "outputFormat": "wav",
+    "bytes": 407084,
+    "riff": "RIFF",
+    "durationSec": 8.48
+  }
+}
