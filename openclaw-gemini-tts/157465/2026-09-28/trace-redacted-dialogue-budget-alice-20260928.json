@@ -1,0 +1,153 @@
+{
+  "case": "dialogue-budget-alice",
+  "request": {
+    "url": "https://generativelanguage.googleapis.com/v1beta/interactions",
+    "method": "POST",
+    "body": {
+      "model": "gemini-3.8-flash-lite-tts",
+      "store": false,
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hello from the gate. <laugh> Budget: 10 dollars Alice: Hi.",
+              "annotations": [
+                {
+                  "type": "speech_metadata",
+                  "speaker": "Puck",
+                  "style": "bright\n\nKeep it brief."
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "Understood. <short pause> See you there.",
+              "annotations": [
+                {
+                  "type": "speech_metadata",
+                  "speaker": "Kore",
+                  "style": "calm\n\nKeep it brief."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "response_format": {
+        "type": "audio",
+        "mime_type": "audio/l16",
+        "sample_rate": 24000
+      },
+      "generation_config": {
+        "speech_config": {
+          "mode": "conversational",
+          "speakers": [
+            {
+              "speaker": "Puck",
+              "voice": "Puck"
+            },
+            {
+              "speaker": "Kore",
+              "voice": "Kore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "elapsedMs": 3981,
+    "body": {
+      "status": "completed",
+      "usage": {
+        "total_tokens": 308,
+        "total_input_tokens": 30,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 30
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 278,
+        "output_tokens_by_modality": [
+          {
+            "modality": "audio",
+            "tokens": 278
+          }
+        ],
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 676,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 177
+              },
+              {
+                "modality": "audio",
+                "tokens": 460
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 249
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 177
+              },
+              {
+                "modality": "audio",
+                "tokens": 460
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 249
+              }
+            ]
+          }
+        ]
+      },
+      "created": "2026-09-28T22:23:35Z",
+      "updated": "2026-09-28T22:23:35Z",
+      "service_tier": "standard",
+      "steps": [
+        {
+          "content": [
+            {
+              "data": "<base64 555520 chars>",
+              "channels": 1,
+              "sample_rate": 24000,
+              "mime_type": "audio/l16; rate=24000; channels=1",
+              "type": "audio"
+            }
+          ],
+          "type": "model_output"
+        }
+      ],
+      "object": "interaction",
+      "model": "gemini-3.8-flash-lite-tts"
+    }
+  },
+  "result": {
+    "outputFormat": "wav",
+    "bytes": 416684,
+    "riff": "RIFF",
+    "durationSec": 8.68
+  }
+}

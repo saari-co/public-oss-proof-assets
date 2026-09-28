@@ -60,6 +60,21 @@ single voice with a speaker label. Keys are not in any file; audio base64 is eli
 | [trace-redacted-no-speaker-20260928.json](openclaw-gemini-tts/157331/2026-09-28/trace-redacted-no-speaker-20260928.json) | Plain single-voice request and HTTP 200 response in 2.9 s |
 | [speaker-shape-probes-20260928.json](openclaw-gemini-tts/157331/2026-09-28/speaker-shape-probes-20260928.json) | Direct `curl` probes: a `speaker` inside a `speech_config` array entry is mapped to `multi_speaker_voice_config` and rejected unless exactly 2 speakers; `{speakers:[one]}` with or without `mode` is HTTP 400 "Invalid input received"; single-voice array plus `speech_metadata.speaker` is HTTP 200 |
 
+## openclaw/openclaw#157465 — Gemini 3.8 two-voice dialogue
+
+Lane: [openclaw/openclaw#157465](https://github.com/openclaw/openclaw/pull/157465) (stacked on #157331)
+
+One live synthesis on 2026-09-28 through the rebuilt branch's provider (head `707ab55`,
+`gemini-3.8-flash-lite-tts`, speakers Puck and Kore, `store: false`, `audio/l16` at 24 kHz).
+The transcript deliberately contains ordinary colon-prefixed prose (`Budget: 10 dollars`) and an
+unconfigured label (`Alice: Hi.`) after Puck's turn; both stay inside Puck's turn and Kore still
+starts her own turn. Keys are not in any file; audio base64 is elided.
+
+| File | What it shows |
+| --- | --- |
+| [gemini-3.8-flash-lite-tts-dialogue-budget-alice-20260928.wav](openclaw-gemini-tts/157465/2026-09-28/gemini-3.8-flash-lite-tts-dialogue-budget-alice-20260928.wav) | 8.68 s WAV: Puck says "Hello from the gate. <laugh> Budget: 10 dollars Alice: Hi.", Kore says "Understood. <short pause> See you there." Neither speaker name is spoken |
+| [trace-redacted-dialogue-budget-alice-20260928.json](openclaw-gemini-tts/157465/2026-09-28/trace-redacted-dialogue-budget-alice-20260928.json) | Two `content[]` text blocks with `speech_metadata {speaker, style}` (`style` = cast style + `audioProfile`), `speech_config {mode: conversational, speakers: [Puck, Kore]}`; HTTP 200 in 4.0 s, `steps[]` audio |
+
 ## trycua/cua#3673 — Android driver baseline on Pixel 10 Pro Fold
 
 Lane: [trycua/cua#3673](https://github.com/trycua/cua/issues/3673) (draft [trycua/cua#3674](https://github.com/trycua/cua/pull/3674) at `271d2e46`)
