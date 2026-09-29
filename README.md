@@ -181,3 +181,15 @@ Cua virtual displays.
 | --- | --- |
 | [jump-to-latest-base-vs-head-540x960dp-8ccd7a95-20260929.png](openclaw-android-ui/155918/2026-09-29/jump-to-latest-base-vs-head-540x960dp-8ccd7a95-20260929.png) | 540×960 dp: scrolled-up history and the result of tapping Jump to latest. Base: header arrow; head: floating button above the composer. Both return to the latest reply |
 | [jump-to-latest-short-and-wide-8ccd7a95-20260929.png](openclaw-android-ui/155918/2026-09-29/jump-to-latest-short-and-wide-8ccd7a95-20260929.png) | Base and head at 540×380 dp, head at 960×540 dp: the floating button stays visible and clear of the composer |
+
+## openclaw/openclaw#147282 — Android chat switching transitions (partial)
+
+Lane: [openclaw/openclaw#147282](https://github.com/openclaw/openclaw/pull/147282)
+
+Pixel 10 Pro Fold display 0, head `791fd912` vs merge-base `4aacaa0e`, screenshot fixture;
+drawer chat switches filmed with `screenrecord` and sampled at fixed offsets from the switch.
+Fixture mode cannot show cold reopen, persisted model names or the schema upgrade.
+
+| File | What it shows |
+| --- | --- |
+| [chat-switch-frames-base-vs-head-791fd912-20260929.png](openclaw-android-ui/147282/2026-09-29/chat-switch-frames-base-vs-head-791fd912-20260929.png) | Rows: base/head × first visit, second (unseen) chat, return to a viewed chat; columns −30 to +300 ms. Base: sliding drawer, "Loading thread" card, pop-in; head: drawer gone in one frame, fade-in, same-frame restore followed by a scroll jump. Status bar band cropped |
