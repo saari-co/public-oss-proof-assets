@@ -169,3 +169,15 @@ OpenClaw's synthetic screenshot fixture (no Gateway), driven by
 | --- | --- |
 | [fold-inner-flat-base-vs-head-1e971aa7-20260929.png](openclaw-android-ui/143466/2026-09-29/fold-inner-flat-base-vs-head-1e971aa7-20260929.png) | Fold inner display open flat (852×883 dp): base keeps the drawer, head shows the permanent sidebar. Status bar cropped |
 | [resize-matrix-base-vs-head-1e971aa7-20260929.png](openclaw-android-ui/143466/2026-09-29/resize-matrix-base-vs-head-1e971aa7-20260929.png) | One activity on a Cua virtual display resized live: compact, 832 and 848 dp wide, 315 and 325 dp tall. Head switches to the sidebar at ≥840 dp wide and ≥320 dp tall; the typed draft survives every size |
+
+## openclaw/openclaw#155918 — Android Jump to latest above the composer
+
+Lane: [openclaw/openclaw#155918](https://github.com/openclaw/openclaw/pull/155918)
+
+Pixel 10 Pro Fold, head `8ccd7a95` vs merge-base `43d85e5f`, screenshot fixture `chat` scene on
+Cua virtual displays.
+
+| File | What it shows |
+| --- | --- |
+| [jump-to-latest-base-vs-head-540x960dp-8ccd7a95-20260929.png](openclaw-android-ui/155918/2026-09-29/jump-to-latest-base-vs-head-540x960dp-8ccd7a95-20260929.png) | 540×960 dp: scrolled-up history and the result of tapping Jump to latest. Base: header arrow; head: floating button above the composer. Both return to the latest reply |
+| [jump-to-latest-short-and-wide-8ccd7a95-20260929.png](openclaw-android-ui/155918/2026-09-29/jump-to-latest-short-and-wide-8ccd7a95-20260929.png) | Base and head at 540×380 dp, head at 960×540 dp: the floating button stays visible and clear of the composer |
