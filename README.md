@@ -193,3 +193,14 @@ Fixture mode cannot show cold reopen, persisted model names or the schema upgrad
 | File | What it shows |
 | --- | --- |
 | [chat-switch-frames-base-vs-head-791fd912-20260929.png](openclaw-android-ui/147282/2026-09-29/chat-switch-frames-base-vs-head-791fd912-20260929.png) | Rows: base/head × first visit, second (unseen) chat, return to a viewed chat; columns −30 to +300 ms. Base: sliding drawer, "Loading thread" card, pop-in; head: drawer gone in one frame, fade-in, same-frame restore followed by a scroll jump. Status bar band cropped |
+
+### 2026-09-29 — live Gateway run
+
+Pixel 10 Pro XL, base installed fresh then head installed over it, paired to a throwaway 2026.9.6
+Gateway on loopback with a mock model ("Mock Luna", "Mock Sol") and three synthetic sessions.
+Status bar band cropped.
+
+| File | What it shows |
+| --- | --- |
+| [live-model-chip-base-vs-head-791fd912-20260929.png](openclaw-android-ui/147282/2026-09-29/live-model-chip-base-vs-head-791fd912-20260929.png) | Composer model chip from −50 to +300 ms around each switch. Base: "Model" → raw `mock-luna` → "Mock Luna"; head: the friendly name from the first frame |
+| [live-switch-frames-base-vs-head-791fd912-20260929.png](openclaw-android-ui/147282/2026-09-29/live-switch-frames-base-vs-head-791fd912-20260929.png) | Frames −100 to +300 ms for first visits, a return, and two switches after an offline cold start. Base: sliding drawer, "Loading thread", pop-in, "Model" chip offline; head: drawer gone in one frame, fade-in, cached friendly names offline |
