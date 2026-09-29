@@ -135,3 +135,24 @@ synthetic fixture only; no status bar, no personal content).
 | --- | --- |
 | [slice2-toast-on-cua-display.png](phone-lab/3/2026-09-27/slice2-toast-on-cua-display.png) | Toast raised by phone-lab's treedump lands on the Cua display (Count: 2) |
 | [slice2-toast-during-api-capture.png](phone-lab/3/2026-09-27/slice2-toast-during-api-capture.png) | Toast during the ten `GET /api/tree` captures (Count: 22); the increment ref stayed `e7f67h` |
+
+## openclaw/openclaw#159947 — Gemini custom voices from Control UI
+
+Lane: [openclaw/openclaw#159947](https://github.com/openclaw/openclaw/pull/159947)
+
+One real voice replication on 2026-09-29 through a branch-built Gateway (head `3e6dc02`, build
+`2026.9.6-3e6dc02fc227`, fresh profile, loopback only). The PR author recorded the consent
+sentence (9.4 s) and the reference take (28.3 s) in the Control UI's **Create from my voice**
+dialog and clicked **Store voice** once. The Gateway's `tts.replicateVoice` answered in 5.7 s after
+one `POST /v1beta/voices` to Google, HTTP 200, no retry. Read back through `tts.voices`, the
+project went from 11 to 12 stored voices; the new one is type `replicated`.
+
+Images are cropped to the dialog or the page viewport. Other voices in the project are blacked
+out and the new id is partly masked. No key, pairing token, or audio is in any file.
+
+| File | What it shows |
+| --- | --- |
+| [voice-lab-01-dialog-before-recording-3e6dc02-20260929.png](openclaw-voice-lab/159947/2026-09-29/voice-lab-01-dialog-before-recording-3e6dc02-20260929.png) | The dialog before recording: voice name, Google's consent sentence, the reference script, both takes empty |
+| [voice-lab-02-consent-take-recorded-3e6dc02-20260929.png](openclaw-voice-lab/159947/2026-09-29/voice-lab-02-consent-take-recorded-3e6dc02-20260929.png) | Consent take recorded (9.4 s) with its playback control. Store stays locked and says why until the reference take exists |
+| [voice-lab-03-stored-success-3e6dc02-20260929.png](openclaw-voice-lab/159947/2026-09-29/voice-lab-03-stored-success-3e6dc02-20260929.png) | Success: both takes recorded, green "Stored PR159947 UI proof", Store locked against a second send |
+| [voice-lab-04-custom-voices-list-3e6dc02-20260929.png](openclaw-voice-lab/159947/2026-09-29/voice-lab-04-custom-voices-list-3e6dc02-20260929.png) | Custom voices after the store: the new voice listed first with its `voice_…1ckp` id, footer `2026.9.6 · git@3e6dc02`. The red "Could not list stored voices." is the branch's incomplete-listing marker: Google returned 1000 catalog entries over 10 pages with more pending, so the list is shown with a warning |
