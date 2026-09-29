@@ -156,3 +156,16 @@ out and the new id is partly masked. No key, pairing token, or audio is in any f
 | [voice-lab-02-consent-take-recorded-3e6dc02-20260929.png](openclaw-voice-lab/159947/2026-09-29/voice-lab-02-consent-take-recorded-3e6dc02-20260929.png) | Consent take recorded (9.4 s) with its playback control. Store stays locked and says why until the reference take exists |
 | [voice-lab-03-stored-success-3e6dc02-20260929.png](openclaw-voice-lab/159947/2026-09-29/voice-lab-03-stored-success-3e6dc02-20260929.png) | Success: both takes recorded, green "Stored PR159947 UI proof", Store locked against a second send |
 | [voice-lab-04-custom-voices-list-3e6dc02-20260929.png](openclaw-voice-lab/159947/2026-09-29/voice-lab-04-custom-voices-list-3e6dc02-20260929.png) | Custom voices after the store: the new voice listed first with its `voice_…1ckp` id, footer `2026.9.6 · git@3e6dc02`. The red "Could not list stored voices." is the branch's incomplete-listing marker: Google returned 1000 catalog entries over 10 pages with more pending, so the list is shown with a warning |
+
+## openclaw/openclaw#143466 — Android flat large-screen navigation
+
+Lane: [openclaw/openclaw#143466](https://github.com/openclaw/openclaw/pull/143466)
+
+Pixel 10 Pro Fold (Android 17), debug builds of head `1e971aa7` and merge-base `9e9944cd` in
+OpenClaw's synthetic screenshot fixture (no Gateway), driven by
+[phone-lab](https://github.com/saariuslystoned/phone-lab) trails.
+
+| File | What it shows |
+| --- | --- |
+| [fold-inner-flat-base-vs-head-1e971aa7-20260929.png](openclaw-android-ui/143466/2026-09-29/fold-inner-flat-base-vs-head-1e971aa7-20260929.png) | Fold inner display open flat (852×883 dp): base keeps the drawer, head shows the permanent sidebar. Status bar cropped |
+| [resize-matrix-base-vs-head-1e971aa7-20260929.png](openclaw-android-ui/143466/2026-09-29/resize-matrix-base-vs-head-1e971aa7-20260929.png) | One activity on a Cua virtual display resized live: compact, 832 and 848 dp wide, 315 and 325 dp tall. Head switches to the sidebar at ≥840 dp wide and ≥320 dp tall; the typed draft survives every size |
