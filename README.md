@@ -204,3 +204,14 @@ Status bar band cropped.
 | --- | --- |
 | [live-model-chip-base-vs-head-791fd912-20260929.png](openclaw-android-ui/147282/2026-09-29/live-model-chip-base-vs-head-791fd912-20260929.png) | Composer model chip from −50 to +300 ms around each switch. Base: "Model" → raw `mock-luna` → "Mock Luna"; head: the friendly name from the first frame |
 | [live-switch-frames-base-vs-head-791fd912-20260929.png](openclaw-android-ui/147282/2026-09-29/live-switch-frames-base-vs-head-791fd912-20260929.png) | Frames −100 to +300 ms for first visits, a return, and two switches after an offline cold start. Base: sliding drawer, "Loading thread", pop-in, "Model" chip offline; head: drawer gone in one frame, fade-in, cached friendly names offline |
+
+## openclaw/openclaw#159159 — Android sidebar session parentage
+
+Lane: [openclaw/openclaw#159159](https://github.com/openclaw/openclaw/pull/159159)
+
+Pixel 10 Pro XL, Gateway and debug app built from head `806788de` and merge-base `0c8e56cf`, one
+throwaway Gateway state on loopback with a mock model and synthetic sessions. Status bar cropped.
+
+| File | What it shows |
+| --- | --- |
+| [sidebar-base-head-and-old-gateway-806788de-20260929.png](openclaw-android-ui/159159/2026-09-29/sidebar-base-head-and-old-gateway-806788de-20260929.png) | Base sidebar (header + only); head sidebar after an in-place upgrade (+, New independent session, New child on the selected row); head app on the base Gateway after New independent session: the raw `INVALID_REQUEST … unexpected property 'independent'` in "Chat needs attention" |
