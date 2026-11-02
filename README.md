@@ -9,6 +9,18 @@ pull-request proof. Do not store tokens, cookies, or dashboard URLs here.
 <lane>/<issue>/<YYYY-MM-DD>/<filename>
 ```
 
+## openclaw/openclaw#191194 — native Talk without a realtime provider
+
+Lane: [openclaw/openclaw#191194](https://github.com/openclaw/openclaw/pull/191194)
+
+Pixel 10 Pro Fold, proof build `ai.openclaw.proof189985.debug`, paired to `127.0.0.1:19001`. macOS `say` of "What is two plus two?" at 11:42. Spoken playback did not play (`talk.speak unavailable: talk provider not configured`).
+
+| File | What it shows |
+| --- | --- |
+| [14-native-talk-listening.png](openclaw-android-ui/191194/2026-11-02/14-native-talk-listening.png) | Composer shows Listening, Native Talk, no realtime-provider dialog |
+| [15-transcript-2-plus-2.png](openclaw-android-ui/191194/2026-11-02/15-transcript-2-plus-2.png) | Transcript bubble `what is 2 + 2` while Native Talk is Thinking |
+| [16-reply-4.png](openclaw-android-ui/191194/2026-11-02/16-reply-4.png) | Chat reply `4` while Native Talk is still Listening |
+
 ## NVIDIA/OpenShell#2742 — Grok subscription OAuth
 
 Lane: [saariuslystoned/OpenShell-grok](https://github.com/saariuslystoned/OpenShell-grok)
